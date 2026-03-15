@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Drafts
+DRAFT-*.md
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
