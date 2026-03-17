@@ -32,7 +32,7 @@ Claude Code automatically loads the first ~200 lines of MEMORY.md files in the p
 **Skills** (loaded on demand)
 Each skill's prompt file is only loaded when that skill is invoked. This keeps the base context lean. A skill prompt can be substantial (the `/humanize` checklist is 24 patterns) without costing anything in sessions that don't use it.
 
-**Why this hierarchy matters.** Different contexts need different instructions. Your writing style rules should load everywhere. Your notes directory conventions should only load when you're working in that directory. Detailed scanning instructions should only load when you invoke `/scan`. The hierarchy lets you be specific without being bloated.
+**Why this hierarchy matters.** Different contexts need different instructions. Your writing style rules should load everywhere. Your notes directory conventions should only load when you're working in that directory. Detailed scanning instructions should only load when you invoke `/context-collect`. The hierarchy lets you be specific without being bloated.
 
 ## Layer 2: Memory Architecture
 
@@ -62,7 +62,7 @@ Topic files are the workhorses of long-term memory. They can be as long as neede
 ### Tier 4: Knowledge Base
 **Loaded:** Via search (grep, glob, or semantic search).
 **Contains:** Your markdown notes, project pages, daily journals, meeting notes, research.
-**Updated by:** `/scan` (updates person and project pages), `/graduate` (promotes ideas), `/deep-reflect` (surfaces connections).
+**Updated by:** `/context-collect` (updates person and project pages), `/graduate` (promotes ideas), `/deep-reflect` (surfaces connections).
 
 This is your actual knowledge, accumulated over months or years. CoStack doesn't try to load it all. Instead, it searches when context is needed. Semantic search finds conceptually related notes. Grep finds exact references. The combination means CoStack can draw on deep history without loading it upfront.
 
@@ -105,10 +105,10 @@ A skill prompt typically contains:
 Skills are designed to compose. The standard workflow chains several skills:
 
 ```
-/scan  -->  /derive  -->  (user works)  -->  /reflect
+/context-collect  -->  /derive  -->  (user works)  -->  /reflect
 ```
 
-`/scan` produces classified signals. `/derive` consumes those signals and produces implications. The user works based on those implications. `/reflect` analyzes what happened and proposes system improvements.
+`/context-collect` produces classified signals. `/derive` consumes those signals and produces implications. The user works based on those implications. `/reflect` analyzes what happened and proposes system improvements.
 
 Other compositions:
 
@@ -252,7 +252,7 @@ Each skill has its own safety boundary in addition to the global rules:
 
 | Skill | Allowed writes |
 |-------|---------------|
-| `/scan` | Knowledge base pages (person, project, context map) |
+| `/context-collect` | Knowledge base pages (person, project, context map) |
 | `/derive` | Knowledge base pages, sparse task creation (1-3 per run) |
 | `/drift` | Knowledge base (drift report) |
 | `/reflect` | CLAUDE.md, MEMORY.md (with approval) |

@@ -17,7 +17,7 @@ Read `~/.costack/config` for `NOTES_DIR`.
 1. **Context Map**: `~/.costack/context-map.md` — current snapshot of active projects, people, and signals.
 2. **Active project pages** in NOTES_DIR — read all pages tagged as active projects.
 3. **Person pages** in NOTES_DIR — read pages for people involved in active work.
-4. **Recent scan summary** — if /scan was just run, use its output. Otherwise, read the context map as the baseline.
+4. **Recent scan summary** — if /context-collect was just run, use its output. Otherwise, read the context map as the baseline.
 
 If argument is `weekly`: run all five reasoning patterns with extra emphasis on Follow-Through Tracking (commitment check mode).
 

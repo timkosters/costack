@@ -25,7 +25,7 @@ Run each check below. For each, report status as **OK**, **WARNING**, or **ERROR
 
 ### 3. State Check
 - Read `~/.costack/state/last-scan.md`
-- When was the last `/scan`? If more than 48 hours ago, WARNING.
+- When was the last `/context-collect`? If more than 48 hours ago, WARNING.
 - Are any source timestamps missing?
 
 ### 4. CLAUDE.md Check

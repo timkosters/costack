@@ -1,6 +1,6 @@
 # CoStack Scan State
 
-<!-- Updated automatically by /scan -->
+<!-- Updated automatically by /context-collect -->
 
 last-run:
 last-email-check:

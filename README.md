@@ -1,8 +1,18 @@
 # CoStack
 
-**CoStack turns Claude Code into an AI chief of staff.** It scans your communication channels, tracks your commitments, surfaces what you're avoiding, and helps you write like a human.
+**CoStack turns Claude Code into an AI chief of staff.** It builds a living context map of your world — every person, project, and commitment — and keeps it updated by scanning your communication channels automatically.
 
 Most people use Claude Code to write software. CoStack uses it to run your life.
+
+## The Context Map
+
+The core idea: Claude starts every conversation from zero. CoStack fixes that.
+
+Run `/context-collect` and it sweeps across every source you have connected — email, calendar, messages, meeting notes, tasks, CRM — and builds a single context map of your world. Who you're working with, what's active, what's pending, what needs attention.
+
+Run `/context-collect Sarah` and it pulls everything about Sarah from every source into one page. Every email, message, meeting note, calendar event, and task — assembled chronologically with commitments and open threads highlighted.
+
+The context map updates every time you run it. Claude reads it at the start of every session. Your AI assistant finally knows what's going on.
 
 ## Get Started
 
@@ -19,29 +29,31 @@ Both paths end in the same place: a 20-minute setup interview where CoStack lear
 
 ## What It Does
 
-CoStack adds nine skills to Claude Code. Each one puts Claude in a specific thinking mode.
+CoStack adds ten skills to Claude Code. Each one puts Claude in a specific thinking mode.
 
 | Skill | What it does |
 |-------|-------------|
-| `/bootstrap` | First-run setup. Interviews you about your work, configures everything, builds your initial context. |
-| `/scan` | Check your sources for new information: messages, emails, meetings, tasks. Classifies signals and updates your knowledge base. |
-| `/derive` | Reason about what the new information means. Detects gaps, infers timelines, tracks follow-through, flags what needs attention. |
+| `/context-collect` | Sweep all your sources, or focus on a specific person/project/topic. Builds and maintains your context map. |
+| `/derive` | Reason about what the context means. Detects gaps, infers timelines, tracks follow-through, flags what needs attention. |
 | `/drift` | Compare stated intentions vs. actual behavior. Surfaces the projects you keep saying matter but never touch. |
 | `/reflect` | Analyze patterns across sessions. Propose improvements to your instructions so the system gets smarter over time. |
 | `/deep-reflect` | Search years of old notes for connections to whatever you're working on now. |
 | `/graduate` | Find ideas buried in daily notes that deserve their own page. |
 | `/humanize` | Strip AI patterns from any piece of writing. 24-pattern checklist from em-dash overuse to significance inflation. |
+| `/bootstrap` | First-run setup. Interviews you about your work, configures everything, builds your initial context. |
 | `/health` | System diagnostic. Checks configuration, memory, state files, and freshness. |
 
-The core loop: **scan** your world, **derive** what it means, **act** on what matters.
+The core loop: **collect** context from your world, **derive** what it means, **act** on what matters.
 
 ## How It Works
 
-**Layered instructions.** Claude Code loads CLAUDE.md files at multiple levels: global (your preferences), project-specific (per-workspace), and auto-loaded memory (lessons learned). CoStack's `/reflect` skill proposes improvements based on patterns it observes, so your instructions get sharper over time.
+**The context map.** A single markdown file that snapshots your entire world: active projects with status, people with recent activity and pending commitments, upcoming deadlines, and cross-cutting patterns. Regenerated every time you run `/context-collect`. Claude reads it automatically at the start of every session.
 
-**Structured memory.** CLAUDE.md rules load every session. Below that, a MEMORY.md index tracks deeper topic files. Below that, your notes are searchable. At the bottom, parsed session transcripts let you search past conversations. Information flows down as it ages and up as it proves important.
+**Focused collection.** Give `/context-collect` a name, project, or topic and it searches every connected source for anything related. Assembles everything into one page with timeline, key details, open threads, and source links. Useful before a meeting, when picking up a stale project, or when you need the full picture on anything.
 
-**Two-phase context pipeline.** Scanning and reasoning are separate. `/scan` checks every channel and classifies what's new. `/derive` reasons about implications — connecting dots, spotting gaps, inferring what's unsaid. Mixing observation with interpretation produces worse results at both.
+**Two-phase pipeline.** Scanning and reasoning are separate. `/context-collect` checks every channel and classifies what's new. `/derive` reasons about implications — connecting dots, spotting gaps, inferring what's unsaid. Mixing observation with interpretation produces worse results at both.
+
+**Layered memory.** CLAUDE.md rules load every session. A MEMORY.md index tracks deeper lessons. Your notes are searchable. Past session transcripts are queryable. Information flows down as it ages and up as it proves important. `/reflect` proposes rule improvements based on patterns it observes.
 
 **Work taxonomy.** Everything fits into Workspace > Area > Project > Task. Areas are durable responsibilities that never complete. Projects have end states. Tasks are discrete actions. This lets CoStack track commitments at the right level.
 
@@ -49,13 +61,15 @@ The core loop: **scan** your world, **derive** what it means, **act** on what ma
 
 CoStack works best as a daily habit.
 
-**Morning:** `/scan` to pull in context, then `/derive` to figure out what matters.
+**Morning:** `/context-collect` to sweep your sources, then `/derive` to figure out what matters.
+
+**Before a meeting:** `/context-collect [person name]` to pull everything about them into one page.
 
 **During the day:** Work normally. When you write something important, run `/humanize` on it.
 
 **End of week:** `/reflect` to learn from the week. `/drift` to check if you're doing what you said you would.
 
-CoStack adapts to whatever tools you have connected. Email, calendar, messaging, task manager, CRM — if you've configured MCP servers for them, CoStack scans them. If you haven't, it skips them gracefully. No specific tool is required.
+CoStack adapts to whatever tools you have connected. If you've configured MCP servers for email, calendar, messaging, or anything else, CoStack scans them. If you haven't, it skips them gracefully. No specific tool is required.
 
 ## Design Philosophy
 
@@ -65,7 +79,7 @@ CoStack adapts to whatever tools you have connected. Email, calendar, messaging,
 
 **Self-improving.** The diary/reflect cycle means the system learns from every session. When something goes wrong, `/reflect` traces the problem to its source and proposes a fix.
 
-**Skills are thinking modes.** Each skill puts Claude in a specific cognitive role. `/scan` is methodical and completionist. `/derive` is connective and inferential. `/humanize` is editorial. The same model behaves differently depending on which skill frames the task.
+**Skills are thinking modes.** Each skill puts Claude in a specific cognitive role. `/context-collect` is methodical and completionist. `/derive` is connective and inferential. `/humanize` is editorial. The same model behaves differently depending on which skill frames the task.
 
 ## Who This Is For
 
@@ -78,7 +92,7 @@ CoStack complements code-focused tools rather than replacing them. If you use Cl
 Contributions welcome. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for system details.
 
 **Good first contributions:**
-- New signal classifiers for `/scan`
+- New signal classifiers for `/context-collect`
 - Additional writing patterns for `/humanize`
 - Documentation improvements
 

@@ -45,7 +45,7 @@ After installation, tell them:
 2. **Type `/bootstrap`** — this starts the setup interview
 3. **Answer the questions** — CoStack will ask about their role, team, projects, and tools. Takes about 20 minutes. It creates pages and builds context as you talk.
 
-That's it. After bootstrap, they can use `/scan` daily to check their sources and `/derive` to reason about what needs attention.
+That's it. After bootstrap, they can use `/context-collect` daily to check their sources and `/derive` to reason about what needs attention.
 
 ## If They Get Stuck
 
@@ -71,8 +71,9 @@ After bootstrap, CoStack knows their world and is ready to work.
 ## Daily Usage (After Setup)
 
 The core loop:
-- **Morning**: Type `/scan` — checks email, calendar, messages, tasks for what's new
-- **After scan**: Type `/derive` — reasons about what the new information means
+- **Morning**: Type `/context-collect` — sweeps email, calendar, messages, tasks for what's new and updates your context map
+- **Before a meeting**: Type `/context-collect [person name]` — pulls everything about that person from every source into one page
+- **After collecting**: Type `/derive` — reasons about what the new information means
 - **When writing**: Type `/humanize` on any draft to strip AI patterns
 - **End of week**: Type `/reflect` — proposes improvements to the system
 

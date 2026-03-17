@@ -6,7 +6,7 @@ argument-hint: ""
 
 # /bootstrap — Setup & Interview
 
-The complete onboarding experience. Configures CoStack, interviews you about your world, and sets everything up so /scan and /derive work from day one.
+The complete onboarding experience. Configures CoStack, interviews you about your world, and sets everything up so /context-collect and /derive work from day one.
 
 ## Before Starting
 
@@ -57,7 +57,7 @@ Prompt naturally. Don't force a rigid format — let the user describe people ho
 
 After each person is described, **immediately create their person page** in NOTES_DIR. Don't wait until the end. Show the user what you created.
 
-When the user runs out of names, move on. Don't push for completeness — /scan will add people over time.
+When the user runs out of names, move on. Don't push for completeness — /context-collect will add people over time.
 
 ## Step 3: Key Collaborators (~5-10 min)
 
@@ -97,7 +97,7 @@ Create any additional pages. Update project priorities based on answers.
 
 > "Last thing — what tools do you use for communication and work? I'm going to check what I can already access."
 
-Probe for available MCP tools by category (same check that /scan does):
+Probe for available MCP tools by category (same check that /context-collect does):
 - Email, calendar, messaging, meeting notes, task manager, CRM
 
 For each category, report what's connected:
@@ -108,7 +108,7 @@ For each category, report what's connected:
 > - ..."
 
 For anything not connected:
-> "You can connect more sources later by adding MCP servers to Claude Code. The more I can see, the more useful /scan becomes. But everything works without them — I'll just focus on what's available."
+> "You can connect more sources later by adding MCP servers to Claude Code. The more I can see, the more useful /context-collect becomes. But everything works without them — I'll just focus on what's available."
 
 Don't go down a rabbit hole of MCP setup. Note what's available and move on.
 
@@ -140,7 +140,7 @@ Then:
 > "You're all set. Here's what to do next:
 >
 > - **Review the CLAUDE.md draft** I saved at `~/.costack/claude-md-draft.md`. When it looks good, copy it to `~/.claude/CLAUDE.md`.
-> - **Try `/scan`** to pull in the latest from your connected sources.
+> - **Try `/context-collect`** to pull in the latest from your connected sources.
 > - **Try `/derive`** after a scan to see what CoStack thinks needs attention.
 >
 > CoStack gets smarter over time. `/reflect` at the end of each week will refine your rules based on what actually happened."
@@ -148,7 +148,7 @@ Then:
 ## Interview Style
 
 - **Keep pace brisk.** Don't linger longer than the user wants. Short answers are fine.
-- **Breadth over depth.** Coverage now, detail later via /scan.
+- **Breadth over depth.** Coverage now, detail later via /context-collect.
 - **Don't push for more detail than offered.** Gaps are data too.
 - **Be conversational, not interrogative.** This is a planning conversation, not a form.
 - **Create pages immediately** after each person/project. The user should see their world taking shape as they talk.
@@ -159,4 +159,4 @@ Then:
 - **Notes directory and CoStack state files are the only write targets.**
 - **Never overwrite existing CLAUDE.md** — always draft separately and let the user move it.
 - **Never send messages** or modify external systems.
-- **Never create pages for people the user didn't mention.** Wait for /scan.
+- **Never create pages for people the user didn't mention.** Wait for /context-collect.

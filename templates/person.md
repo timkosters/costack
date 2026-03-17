@@ -16,7 +16,7 @@ last-context-update:
 - Other:
 
 ## Understanding
-<!-- CoStack's current understanding of this person. Updated by /scan. -->
+<!-- CoStack's current understanding of this person. Updated by /context-collect. -->
 ### What they care about
 
 ### Relationship to you
